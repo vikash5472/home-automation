@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 
+// db connection (mongo db, URI presnt in .env file)
 const db = mongoose.connect(process.env.MONGO_URI, {
     useCreateIndex: true,
     useUnifiedTopology: true,

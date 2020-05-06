@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// mongo schema for devices colelction 
 const deviceSchema = new Schema({
     name: { type: String, required: true },
     status: { type: String, required: true, enum: ['paired', 'unpaired'] },

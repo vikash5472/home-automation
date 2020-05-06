@@ -31,14 +31,9 @@ const errorHandler = (err, req, res, next) => {
         error = new ErrorResponse(message, 401);
     }
 
-    // MySQL Parse error
-    // if (err.code === 'ER_PARSE_ERROR') {
-    //     const message = `${err.name}: ${err.message}`;
-    //     error = new ErrorResponse(message, 500);
-    // }
-
     res.status(error.statusCode || 500).json({
         success: false,
+        code: rror.statusCode || 500,
         error: error.message || 'Server Error'
     });
 };
