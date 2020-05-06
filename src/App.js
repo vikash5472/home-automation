@@ -80,6 +80,9 @@ class App {
         };
         app.use(timeout.handler(options));
 
+        // mongo connection
+        require('./config/mongoose.db');
+
         // Adding swagger for the routes
         app.use('/api/v1/explorer', swaggerUi.serve, (...args) => swaggerUi.setup(swaggerSpec)(...args));
 
@@ -99,7 +102,7 @@ class App {
      */
     listenToPort(app, port) {
         this.server = app.listen(port, () => console.log(`== Application started at ${port} == in ${process.env.NODE_ENV} environment ==`));
-        open(`http://localhost:${port}/api/v1/explorer`);
+        // open(`http://localhost:${port}/api/v1/explorer`);
 
         // Handle unhandled promise rejections
         process.on('unhandledRejection', (err, promise) => {

@@ -20,7 +20,7 @@ module.exports = {
     "host": process.env.API_URL,
     "basePath": "/api/v1",
     "tags": swaggerHelpers.tags,
-    "schemes": ["https", "https"],
+    "schemes": ["http", "https"],
     "consumes": ["application/json"],
     "produces": ["application/json"],
     "paths": swaggerPaths,

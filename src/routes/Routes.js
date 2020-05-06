@@ -1,12 +1,8 @@
 'use strict';
 
 const router = require('express').Router();
-// const RootRoute = require('./root/Root.controller');
+const deviceController = require('./device/Device.controller');
 
-/**
- * ROUTES
- * @class
- */
 class Routes {
     constructor() {
         this.myRoutes = router;
@@ -19,7 +15,14 @@ class Routes {
      */
     core() {
         this.myRoutes.get('/', (req, res) => res.json({ msg: 'done' }));
-        this.myRoutes.get('*', (req, res) => res.sendStatus(404));
+
+        this.myRoutes.get('/device/all', deviceController.deviceList);
+        this.myRoutes.get('/device/id/:deviceeId', (req, res) => res.json({ msg: 'done' }));
+        this.myRoutes.post('/device/add', (req, res) => res.json({ msg: 'done' }));
+        this.myRoutes.put('/device/operate/:deviceId', (req, res) => res.json({ msg: 'done' }));
+        this.myRoutes.delete('/device/id/:deviceId', (req, res) => res.json({ msg: 'done' }));
+
+        this.myRoutes.all('*', (req, res) => res.sendStatus(404));
     }
 
     /**

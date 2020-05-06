@@ -29,6 +29,7 @@
     "express-session": "^1.17.1",
     "express-timeout-handler": "^2.2.0",
     "helmet": "^3.22.0",
+    "mongoose": "^5.9.12",
     "morgan": "^1.10.0",
     "open": "^7.0.3",
     "swagger-ui-express": "^4.1.4"
