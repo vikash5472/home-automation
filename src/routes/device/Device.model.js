@@ -8,6 +8,7 @@ class DeviceModel {
     }
 
     async getOnebyId(deviceId) {
+        console.log(deviceId);
         return await deviceSchema.findOne({ _id: deviceId }).lean().exec();
     }
 
@@ -20,7 +21,7 @@ class DeviceModel {
     }
 
     async createDevice(deviceData) {
-        return await deviceSchema.create(deviceData).exec();
+        return await deviceSchema.create(deviceData);
     }
 
 }

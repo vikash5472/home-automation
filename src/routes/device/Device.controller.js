@@ -30,7 +30,7 @@ class DeviceController {
      */
     async deviceSingleDevice(req, res, next) {
         try {
-            const deviceId = req.params.deviceId;
+            const deviceId = req.params.deviceeId;
             let deviceData = await deviceModel.getOnebyId(deviceId);
             if (deviceData) {
                 res.status(200).json({ code: 200, error: null, data: deviceData, message: 'Devices found' });
@@ -52,7 +52,7 @@ class DeviceController {
         try {
             const deviceId = req.params.deviceId;
             let deviceData = await deviceModel.deleteOneById(deviceId);
-            if (allDevices) {
+            if (deviceData) {
                 res.status(200).json({ code: 200, error: null, data: deviceData._id, message: 'Devices deleted successfully' });
             } else {
                 res.status(404).json({ code: 404, error: 'Not Found', data: deviceData, message: 'Device not found' });
