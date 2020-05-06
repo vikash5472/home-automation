@@ -13,6 +13,12 @@ $ npm install
 ## Running the app
 
 ```bash
+# set environment variable
+- copy content of sample.env
+- create and save in .env file
+```
+
+```bash
 # run all services for development
 # watch mode
 $ npm start:dev
@@ -23,9 +29,16 @@ $ npm start:prod
 
 ## technology used
 
-### nodejs
-### expressjs framework
-### mongodb
+```bash
+
+nodejs
+expressjs framework
+mongoose (mongodb orm)
+jsonwebtoken
+hapi/joi
+swagger ui
+
+```
 
 ## Stay in touch
 

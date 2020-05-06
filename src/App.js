@@ -93,7 +93,7 @@ class App {
      */
     listenToPort(app, port) {
         this.server = app.listen(port, () => console.log(`== Application started at ${port} == in ${process.env.NODE_ENV} environment ==`));
-        // open(`http://localhost:${port}/api/v1/explorer`);
+        open(`http://localhost:${port}/api/v1/explorer`);
 
         // Handle unhandled promise rejections
         process.on('unhandledRejection', (err, promise) => {
