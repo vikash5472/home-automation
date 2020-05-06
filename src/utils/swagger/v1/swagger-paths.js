@@ -16,6 +16,19 @@ module.exports = {
             }
         }
     },
+    "/generate-token": {
+        get: {
+            tags: ["Auth"],
+            summary: "Create - token",
+            description: "Generate token for accessing these APIs",
+            consumes: ["application/json"],
+            produces: ["application/json"],
+            responses: {
+                200: { "description": "Healthy! server status and API status." },
+                500: swaggerHelpers.responseObject['500']
+            }
+        }
+    },
     "/device/id/{deviceeId}": {
         get: {
             tags: ["Device"],
@@ -25,14 +38,14 @@ module.exports = {
             produces: ["application/json"],
             parameters: [{
                 in: "path", name: "deviceeId", description: "its device object id (_id)", required: true,
-                schema: { type: "string", required: true }
+                schema: { type: "string", required: true, example: '5eb2ce70ed59ca320068822d' }
             }],
             responses: {
                 200: swaggerHelpers.responseObject['200'],
                 404: swaggerHelpers.responseObject['404'],
                 500: swaggerHelpers.responseObject['500']
             },
-            // security: securityObject
+            security: securityObject
         }
     },
     "/device/all": {
@@ -47,7 +60,7 @@ module.exports = {
                 404: swaggerHelpers.responseObject['404'],
                 500: swaggerHelpers.responseObject['500']
             },
-            // security: securityObject
+            security: securityObject
         }
     },
     "/device/add": {
@@ -73,7 +86,7 @@ module.exports = {
                 404: swaggerHelpers.responseObject['404'],
                 500: swaggerHelpers.responseObject['500']
             },
-            // security: securityObject
+            security: securityObject
         }
     },
     "/device/operate/{deviceId}": {
@@ -85,14 +98,14 @@ module.exports = {
             produces: ["application/json"],
             parameters: [{
                 in: "path", name: "deviceId", description: "its device object id (_id)", required: true,
-                schema: { type: "string", required: true }
+                schema: { type: "string", required: true, example: '5eb2ce70ed59ca320068822d' }
             }],
             responses: {
                 200: swaggerHelpers.responseObject['200'],
                 404: swaggerHelpers.responseObject['404'],
                 500: swaggerHelpers.responseObject['500']
             },
-            // security: securityObject
+            security: securityObject
         }
     },
     "/device/id/{deviceId}": {
@@ -104,14 +117,14 @@ module.exports = {
             produces: ["application/json"],
             parameters: [{
                 in: "path", name: "deviceId", description: "its device object id (_id)", required: true,
-                schema: { type: "string", required: true }
+                schema: { type: "string", required: true, example: '5eb2ce70ed59ca320068822d' }
             }],
             responses: {
                 200: swaggerHelpers.responseObject['200'],
                 404: swaggerHelpers.responseObject['404'],
                 500: swaggerHelpers.responseObject['500']
             },
-            // security: securityObject
+            security: securityObject
         }
     }
 };

@@ -3,6 +3,8 @@
 const router = require('express').Router();
 const defaultController = require('./default/Default.controller');
 const deviceController = require('./device/Device.controller');
+const authController = require('./auth/auth.controller');
+const authMiddleware = require('./../middleware/Auth');
 
 class Routes {
     constructor() {
@@ -16,6 +18,10 @@ class Routes {
      */
     core() {
         this.myRoutes.get('/', defaultController.root);
+
+        this.myRoutes.get('/generate-token', authController.generateToken);
+
+        this.myRoutes.use(authMiddleware.authenticate);
 
         this.myRoutes.get('/device/all', deviceController.deviceList);
         this.myRoutes.get('/device/id/:deviceId', deviceController.deviceSingleDevice);

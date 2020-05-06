@@ -14,6 +14,7 @@ const info = {
 'use strict';
 const tags = [
     { name: "Open", description: "OpenAPI - these does not require any authetication" },
+    { name: "Auth", description: "Authetication APIs" },
     { name: "Device", description: "API Device manipulation , authenticated" },
 ];
 
