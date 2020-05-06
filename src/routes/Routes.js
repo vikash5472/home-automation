@@ -18,7 +18,7 @@ class Routes {
         this.myRoutes.get('/', defaultController.root);
 
         this.myRoutes.get('/device/all', deviceController.deviceList);
-        this.myRoutes.get('/device/id/:deviceeId', deviceController.deviceSingleDevice);
+        this.myRoutes.get('/device/id/:deviceId', deviceController.deviceSingleDevice);
         this.myRoutes.post('/device/add', deviceController.addDevice);
         this.myRoutes.put('/device/operate/:deviceId', deviceController.operateADevice);
         this.myRoutes.delete('/device/id/:deviceId', deviceController.deleteOneDevice);

@@ -1,5 +1,6 @@
 'use strict';
 const deviceModel = require('./Device.model');
+const JoiValidateDevice = require('./Device.validator')
 
 class DeviceController {
 
@@ -30,7 +31,10 @@ class DeviceController {
      */
     async deviceSingleDevice(req, res, next) {
         try {
-            const deviceId = req.params.deviceeId;
+            // validation
+            await JoiValidateDevice.deviceIdSchema.validateAsync(req.params);
+
+            const deviceId = req.params.deviceId;
             let deviceData = await deviceModel.getOnebyId(deviceId);
             if (deviceData) {
                 res.status(200).json({ code: 200, error: null, data: deviceData, message: 'Devices found' });
@@ -50,6 +54,9 @@ class DeviceController {
      */
     async deleteOneDevice(req, res, next) {
         try {
+            // validation
+            await JoiValidateDevice.deviceIdSchema.validateAsync(req.params);
+
             const deviceId = req.params.deviceId;
             let deviceData = await deviceModel.deleteOneById(deviceId);
             if (deviceData) {
@@ -71,6 +78,9 @@ class DeviceController {
      */
     async operateADevice(req, res, next) {
         try {
+            // validation
+            await JoiValidateDevice.deviceIdSchema.validateAsync(req.params);
+
             const deviceId = req.params.deviceId;
 
             let deviceData = await deviceModel.getOnebyIdAndUpdate(deviceId);
@@ -95,6 +105,9 @@ class DeviceController {
      */
     async addDevice(req, res, next) {
         try {
+            // validation
+            await JoiValidateDevice.deviceDataSchema.validateAsync(req.body);
+
             const { name, type } = req.body;
             let deviceData = {
                 name,

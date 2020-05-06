@@ -1,7 +1,5 @@
 'use strict';
 const express = require('express');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
 const open = require('open');
 const morgan = require('morgan');
 const compression = require('compression');
@@ -53,13 +51,6 @@ class App {
         }));
         // compressing req
         app.use(compression());
-        // session management
-        app.use(cookieParser());
-        app.use(session({
-            secret: process.env.SESSION_SECRET,
-            resave: false,
-            saveUninitialized: true
-        }));
         // keeping the req/res alive for certain time
         app.use((req, res, next) => {
             res.set({
